@@ -1,0 +1,75 @@
+from graph import *
+def update():
+    moveObjectBy(obj,5,0)
+    moveObjectBy(obj1, 5, 0)
+    moveObjectBy(obj2, 5, 0)
+    moveObjectBy(obj3, 5, 0)
+    moveObjectBy(obj4, 5, 0)
+    moveObjectBy(obj5, 5, 0)
+ #  moveObjectBy(obj6, 5, 0)
+    moveObjectBy(obj7, 5, 0)
+onTimer(update,50)
+
+def fon():
+    penColor(0,255,255)
+    brushColor(0,255,255)
+    rectangle(0, 0, 1000, 250)
+    penColor(0,0,255)
+    brushColor(0,0,255)
+    rectangle(0, 250, 1000, 400)
+    penColor(255, 255, 0)
+    brushColor(255, 255, 0)
+    rectangle(0, 400, 1000, 600)
+
+def sky():
+    penColor("yellow")
+    brushColor("yellow")
+    circle(850,80,50)
+    penSize(1)
+    penColor("black")
+    brushColor("white")
+    circle(100, 80, 20)
+    circle(120, 70, 20)
+    circle(120, 93, 20)
+    circle(142, 70, 20)
+    circle(165, 80, 20)
+    circle(145, 95, 20)
+
+def zont():
+    penColor("red")
+    brushColor("red")
+    rectangle(180,320,190,550)
+    polygon([(180, 320), (80, 370), (290, 370), (190, 320)])
+    penColor("grey")
+    line(180, 320, 110, 370)
+    line(180, 320, 140, 370)
+    line(180, 320, 170, 370)
+    line(190, 320, 200, 370)
+    line(190, 320, 230, 370)
+    line(190, 320, 260, 370)
+
+mainWindow()
+windowSize(1000,600)
+canvasSize(1000,600)
+fon()
+sky()
+zont()
+penSize(2)
+penColor("black")
+brushColor("brown")
+obj=arc(500, 320, 50, 50, 180, 90)
+obj1=line(450,320,500,320)
+obj2=polygon([(500, 320), (900, 320), (800, 370), (500, 370)]) # Корпус
+brushColor("black")
+obj3=rectangle(600,320,605,125) # Мачта
+penSize(1)
+brushColor("grey")
+obj4=polygon([(605, 125), (705, 222), (625, 222)]) # Парус
+obj5=polygon([(605, 320), (705, 222), (625, 222)]) # Парус
+penSize(2)
+penColor("black")
+brushColor("white")
+# obj6=circle(820,340,12)
+obj7=line(800,320,800,370)
+
+run()

@@ -1,0 +1,3 @@
+arc(x, y, rx, ry, start, extent)
+chord(x, y, rx, ry, start, extent)
+sector(x, y, rx, ry, start, extent)
