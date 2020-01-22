@@ -4,4 +4,4 @@ def factorial(n):
         n=n*(n-l)
         l-=1
     print(n)
-factorial(10)
+factorial()
