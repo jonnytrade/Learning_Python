@@ -1,10 +1,10 @@
+from sys import exit as prog_exit
 
 bank_water = 400
 bank_milk = 540
 bank_coffee = 120
 bank_money = 550
 bank_cups = 9
-power = True
 
 def bank_result():
     print("The coffee machine has:")
@@ -14,6 +14,7 @@ def bank_result():
     print(bank_cups, "of disposable cups")
     print("$", bank_money, " of money", sep='')
     print("")
+    command_line()
 
 def fill_func():
     global bank_water, bank_milk, bank_coffee, bank_cups
@@ -25,16 +26,19 @@ def fill_func():
     bank_milk += milk_add
     bank_coffee += coffee_add
     bank_cups += cups_add
-
+    print("")
+    command_line()
 
 def take_func():
     global bank_money
     print("I gave you $", bank_money, sep='')
+    print("")
     bank_money = 0
+    command_line()
 
 def coffee_made():
     global bank_water, bank_milk, bank_coffee, bank_cups, bank_money
-    type_coffee = input("What do you want to buy? 1 - espresso, 2 - latte, 3 - cappuccino, back - to main menu:\n> ")
+    type_coffee = input("What do you want to buy? 1 - espresso, 2 - latte, 3 - cappuccino, back - to main menu: >")
     if type_coffee == "1":
         if bank_water < 250:
             print("Sorry, not enough water!")
@@ -90,12 +94,12 @@ def coffee_made():
                         print("I have enough resources, making you a coffee!")
     elif type_coffee == "back":
         command_line()
+    command_line()
 
 
 def command_line():
-    global power
     action = input("Write action (buy, fill, take, remaining, exit):\n> ")
-    if action == "remaining":
+    if action == " remaining":
         print("")
         bank_result()
     elif action == "fill":
@@ -105,7 +109,8 @@ def command_line():
     elif action == "buy":
         coffee_made()
     elif action == "exit":
-        power = False
+        prog_exit()
 
-while power == True:
-    command_line()
+
+bank_result()
+command_line()
